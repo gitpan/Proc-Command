@@ -15,8 +15,8 @@ use warnings::register;
 # Connect up with the event log.
 #
 use vars qw( $VERSION $DATE $FILE);
-$VERSION = '1.02';
-$DATE = '2003/07/14';
+$VERSION = '1.03';
+$DATE = '2003/07/15';
 $FILE = __FILE__;
 
 use vars qw(@ISA @EXPORT_OK);
@@ -36,7 +36,7 @@ sub command
 
     $trys = 1 unless $trys;
     $sleep = 2 unless $sleep;
-  
+
     my ($i, @response);
     for( $i=0; $i<$trys; $i++ ) {
 
@@ -45,6 +45,7 @@ sub command
         #
         # Having the shell pop-up in middle of a long run, just ... bad.
         #
+        $command = "MCR $command" if $^O eq 'VMS';
         unless (open (CMD, '-|', $command)) {
             unless( $i < $trys ) {
                 warn "Cannot fork $command\n";
@@ -98,7 +99,7 @@ Some Perls under Microsoft windows suffers disabilities over Unix Perls.
 One particular disability is a backtick without the console.
 Altough the Microsoft console, may be started without a window
 (start command with /b option or spawn program call), the Perl
-system command on windows usually create a window.
+system command on windows usually creates a window.
 Creating a window causes immense user interface problem since 
 it will randomly pop-up and take focus over the current window,
 erasing current entries into that window.

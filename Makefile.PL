@@ -23,7 +23,7 @@ my $tests = join ' ',unix2os('t/Proc/Command.t');
 WriteMakefile(
     NAME => 'Proc::Command',
     DISTNAME => 'Proc-Command',
-    VERSION  => '0.01',
+    VERSION  => '0.02',
     dist     => {COMPRESS => 'gzip',
                 'gz' => 'gz'},
     test     => {TESTS => $tests},
