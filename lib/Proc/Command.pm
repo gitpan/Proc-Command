@@ -15,8 +15,8 @@ use warnings::register;
 # Connect up with the event log.
 #
 use vars qw( $VERSION $DATE $FILE);
-$VERSION = '1.04';
-$DATE = '2003/07/16';
+$VERSION = '1.05';
+$DATE = '2003/07/27';
 $FILE = __FILE__;
 
 use vars qw(@ISA @EXPORT_OK);
@@ -85,14 +85,14 @@ Proc::Command - backtick that does not use the shell for Perl under Windows
  use Proc::Command
 
  @reponse = Proc::Command->command($command)
- @reponse = Proc::Command->command($command,$trys)
- @reponse = Proc::Command->command($command,$trys, $sleep)
+ @reponse = Proc::Command->command($command, $trys)
+ @reponse = Proc::Command->command($command, $trys, $sleep)
 
  use Proc::Command qw(command)
 
- @reponse = Proc::Command->command($command)
- @reponse = Proc::Command->command($command,$trys)
- @reponse = Proc::Command->command($command,$trys, $sleep)
+ @reponse = command($command)
+ @reponse = command($command, $trys)
+ @reponse = command($command, $trys, $sleep)
 
 =head1 DESCRIPTION
 

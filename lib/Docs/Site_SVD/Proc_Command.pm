@@ -10,20 +10,22 @@ use warnings;
 use warnings::register;
 
 use vars qw($VERSION $DATE $FILE );
-$VERSION = '0.03';
-$DATE = '2003/07/16';
+$VERSION = '0.04';
+$DATE = '2003/07/27';
 $FILE = __FILE__;
 
 use vars qw(%INVENTORY);
 %INVENTORY = (
-    'lib/Docs/Site_SVD/Proc_Command.pm' => [qw(0.03 2003/07/16), 'revised 0.02'],
-    'MANIFEST' => [qw(0.03 2003/07/16), 'generated, replaces 0.02'],
-    'Makefile.PL' => [qw(0.03 2003/07/16), 'generated, replaces 0.02'],
-    'README' => [qw(0.03 2003/07/16), 'generated, replaces 0.02'],
-    'lib/Proc/Command.pm' => [qw(1.04 2003/07/16), 'revised 1.03'],
-    't/Proc/Command.d' => [qw(0.01 2003/07/14), 'unchanged'],
+    'lib/Docs/Site_SVD/Proc_Command.pm' => [qw(0.04 2003/07/27), 'revised 0.03'],
+    'MANIFEST' => [qw(0.04 2003/07/27), 'generated, replaces 0.03'],
+    'Makefile.PL' => [qw(0.04 2003/07/27), 'generated, replaces 0.03'],
+    'README' => [qw(0.04 2003/07/27), 'generated, replaces 0.03'],
+    'lib/Proc/Command.pm' => [qw(1.05 2003/07/27), 'revised 1.04'],
+    't/Proc/Command.d' => [qw(0.02 2003/07/27), 'revised 0.01'],
     't/Proc/Command.pm' => [qw(0.01 2003/07/14), 'unchanged'],
-    't/Proc/Command.t' => [qw(0.01 2003/07/14), 'unchanged'],
+    't/Proc/Command.t' => [qw(0.02 2003/07/27), 'revised 0.01'],
+    'tlib/File/Package.pm' => [qw(1.11 2003/07/27), 'new'],
+    'tlib/Test/Tech.pm' => [qw(1.11 2003/07/27), 'new'],
 
 );
 
@@ -50,11 +52,11 @@ use vars qw(%INVENTORY);
 
  Proc::Command - backtick that does not use the shell for Perl under Windows
 
- Revision: B
+ Revision: C
 
- Version: 0.03
+ Version: 0.04
 
- Date: 2003/07/16
+ Date: 2003/07/27
 
  Prepared for: General Public 
 
@@ -96,7 +98,7 @@ under Perls on Microsoft Windows.
 
 =head2 1.3 Document overview.
 
-This document releases Proc::Command version 0.03
+This document releases Proc::Command version 0.04
 providing a description of the inventory, installation
 instructions and other information necessary to
 utilize and track this release.
@@ -112,8 +114,8 @@ system file specification.
 This document releases the file found
 at the following repository(s):
 
-   http://www.softwarediamonds/packages/Proc-Command-0.03
-   http://www.perl.com/CPAN-local/authors/id/S/SO/SOFTDIA/Proc-Command-0.03
+   http://www.softwarediamonds/packages/Proc-Command-0.04
+   http://www.perl.com/CPAN-local/authors/id/S/SO/SOFTDIA/Proc-Command-0.04
 
 
 Restrictions regarding duplication and license provisions
@@ -181,14 +183,16 @@ consists of the following files:
 
  file                                                         version date       comment
  ------------------------------------------------------------ ------- ---------- ------------------------
- lib/Docs/Site_SVD/Proc_Command.pm                            0.03    2003/07/16 revised 0.02
- MANIFEST                                                     0.03    2003/07/16 generated, replaces 0.02
- Makefile.PL                                                  0.03    2003/07/16 generated, replaces 0.02
- README                                                       0.03    2003/07/16 generated, replaces 0.02
- lib/Proc/Command.pm                                          1.04    2003/07/16 revised 1.03
- t/Proc/Command.d                                             0.01    2003/07/14 unchanged
+ lib/Docs/Site_SVD/Proc_Command.pm                            0.04    2003/07/27 revised 0.03
+ MANIFEST                                                     0.04    2003/07/27 generated, replaces 0.03
+ Makefile.PL                                                  0.04    2003/07/27 generated, replaces 0.03
+ README                                                       0.04    2003/07/27 generated, replaces 0.03
+ lib/Proc/Command.pm                                          1.05    2003/07/27 revised 1.04
+ t/Proc/Command.d                                             0.02    2003/07/27 revised 0.01
  t/Proc/Command.pm                                            0.01    2003/07/14 unchanged
- t/Proc/Command.t                                             0.01    2003/07/14 unchanged
+ t/Proc/Command.t                                             0.02    2003/07/27 revised 0.01
+ tlib/File/Package.pm                                         1.11    2003/07/27 new
+ tlib/Test/Tech.pm                                            1.11    2003/07/27 new
 
 
 =head2 3.3 Changes
@@ -197,15 +201,30 @@ Changes are as follows:
 
 =over 4
 
-=item Proc::Command 0.01
+=item Proc-Command-0.01
+
+Originated
+
+=item Proc-Command-0.02
 
 Added a statement to support the VSM platform
 
 $command = "MCR $command" if $^O eq 'VMS';
 
-=item Proc::Command 0.02
+=item Proc-Command-0.03
 
-Added a 1 at the end of the code section.
+Added a 1 at the end of the code section. Unix Perls very strict on this one.
+
+=item Proc-Command-0.04
+
+Change the test so that test support program modules resides in distribution
+directory tlib directory instead of the lib directory. 
+Because they are no longer in the lib directory, 
+test support files will not be installed as a pre-condition for the 
+test of this module.
+The test of this module will precede immediately.
+The test support files in the tlib directory will vanish after
+the installtion.
 
 =back
 
@@ -213,15 +232,6 @@ Added a 1 at the end of the code section.
 
 This installation requires that the installation site
 has the Perl programming language installed.
-Installation sites running Microsoft Operating systems require
-the installation of Unix utilities. 
-An excellent, highly recommended Unix utilities for Microsoft
-operating systems is unxutils by Karl M. Syring.
-A copy is available at the following web sites:
-
- http://unxutils.sourceforge.net
- http://packages.SoftwareDiamnds.com
-
 There are no other additional requirements or tailoring needed of 
 configurations files, adaptation data or other software needed for this
 installation particular to any installation site.
@@ -249,16 +259,13 @@ Follow the instructions for the the chosen installation software.
 
 The distribution file is at the following respositories:
 
-   http://www.softwarediamonds/packages/Proc-Command-0.03
-   http://www.perl.com/CPAN-local/authors/id/S/SO/SOFTDIA/Proc-Command-0.03
+   http://www.softwarediamonds/packages/Proc-Command-0.04
+   http://www.perl.com/CPAN-local/authors/id/S/SO/SOFTDIA/Proc-Command-0.04
 
 
 =item Prerequistes.
 
- 'File::TestPath' => '0',
- 'File::SmartNL' => '0',
- 'File::Package' => '0',
- 'Test::Tech' => '1.08',
+ None.
 
 
 =item Security, privacy, or safety precautions.
@@ -336,7 +343,13 @@ extension for a Perl test script file
 
 =head1 2.0 SEE ALSO
 
-L<Proc::Command|Proc::Command>
+=over 4
+
+=item L<Proc::Command|Proc::Command> 
+
+=item L<Docs::US_DOD::SVD|Docs::US_DOD::SVD> 
+
+=back
 
 =for html
 <hr>
@@ -363,11 +376,11 @@ __DATA__
 DISTNAME: Proc-Command^
 REPOSITORY_DIR: packages^
 
-VERSION : 0.03^
+VERSION : 0.04^
 FREEZE: 1^
 PREVIOUS_DISTNAME:  ^
-PREVIOUS_RELEASE: 0.02^
-REVISION: B^
+PREVIOUS_RELEASE: 0.03^
+REVISION: C^
 
 
 AUTHOR  : SoftwareDiamonds.com E<lt>support@SoftwareDiamonds.comE<gt>^
@@ -389,23 +402,17 @@ COMPRESS: gzip^
 COMPRESS_SUFFIX: gz^
 
 RESTRUCTURE:  ^
-
 CHANGE2CURRENT:  ^
 
 AUTO_REVISE: 
 lib/Proc/Command.pm
 t/Proc/Command.*
+lib/File/Package.pm => tlib/File/Package.pm
+lib/Test/Tech.pm => tlib/Test/Tech.pm
 ^
 
-PREREQ_PM:
-'File::TestPath' => '0',
-'File::SmartNL' => '0',
-'File::Package' => '0',
-'Test::Tech' => '1.08',
-^
-
+PREREQ_PM:  ^
 TESTS: t/Proc/Command.t^
-
 EXE_FILES:  ^
 
 CHANGES: 
@@ -413,17 +420,33 @@ Changes are as follows:
 
 \=over 4
 
-\=item Proc::Command 0.01
+\=item Proc-Command-0.01
+
+Originated
+
+\=item Proc-Command-0.02
 
 Added a statement to support the VSM platform
 
 $command = "MCR $command" if $^^O eq 'VMS';
 
-\=item Proc::Command 0.02
+\=item Proc-Command-0.03
 
-Added a 1 at the end of the code section.
+Added a 1 at the end of the code section. Unix Perls very strict on this one.
+
+\=item Proc-Command-0.04
+
+Change the test so that test support program modules resides in distribution
+directory tlib directory instead of the lib directory. 
+Because they are no longer in the lib directory, 
+test support files will not be installed as a pre-condition for the 
+test of this module.
+The test of this module will precede immediately.
+The test support files in the tlib directory will vanish after
+the installtion.
 
 \=back
+
 ^
 
 DOCUMENT_OVERVIEW:
@@ -564,10 +587,14 @@ extension for a Perl test script file
 \=back
 ^
 
-SEE_ALSO:
+SEE_ALSO: 
+\=over 4
 
-L<Proc::Command|Proc::Command>
+\=item L<Proc::Command|Proc::Command> 
 
+\=item L<Docs::US_DOD::SVD|Docs::US_DOD::SVD> 
+
+\=back
 ^
 
 HTML:
