@@ -5,11 +5,11 @@ Title Page
 
      Proc::Command - backtick that does not use the shell for Perl under Windows
 
-     Revision: A
+     Revision: B
 
-     Version: 0.02
+     Version: 0.03
 
-     Date: 2003/07/15
+     Date: 2003/07/16
 
      Prepared for: General Public 
 
@@ -47,7 +47,7 @@ Title Page
 
   1.3 Document overview.
 
-    This document releases Proc::Command version 0.02 providing a
+    This document releases Proc::Command version 0.03 providing a
     description of the inventory, installation instructions and other
     information necessary to utilize and track this release.
 
@@ -59,8 +59,8 @@ Title Page
 
     This document releases the file found at the following repository(s):
 
-       http://www.softwarediamonds/packages/Proc-Command-0.02
-       http://www.perl.com/CPAN-local/authors/id/S/SO/SOFTDIA/Proc-Command-0.02
+       http://www.softwarediamonds/packages/Proc-Command-0.03
+       http://www.perl.com/CPAN-local/authors/id/S/SO/SOFTDIA/Proc-Command-0.03
 
     Restrictions regarding duplication and license provisions are as
     follows:
@@ -105,11 +105,11 @@ Title Page
 
      file                                                         version date       comment
      ------------------------------------------------------------ ------- ---------- ------------------------
-     lib/Docs/Site_SVD/Proc_Command.pm                            0.02    2003/07/15 revised 0.01
-     MANIFEST                                                     0.02    2003/07/15 generated, replaces 0.01
-     Makefile.PL                                                  0.02    2003/07/15 generated, replaces 0.01
-     README                                                       0.02    2003/07/15 generated, replaces 0.01
-     lib/Proc/Command.pm                                          1.03    2003/07/15 revised 1.02
+     lib/Docs/Site_SVD/Proc_Command.pm                            0.03    2003/07/16 revised 0.02
+     MANIFEST                                                     0.03    2003/07/16 generated, replaces 0.02
+     Makefile.PL                                                  0.03    2003/07/16 generated, replaces 0.02
+     README                                                       0.03    2003/07/16 generated, replaces 0.02
+     lib/Proc/Command.pm                                          1.04    2003/07/16 revised 1.03
      t/Proc/Command.d                                             0.01    2003/07/14 unchanged
      t/Proc/Command.pm                                            0.01    2003/07/14 unchanged
      t/Proc/Command.t                                             0.01    2003/07/14 unchanged
@@ -122,6 +122,9 @@ Title Page
         Added a statement to support the VSM platform
 
         $command = "MCR $command" if $^O eq 'VMS';
+
+    Proc::Command 0.02
+        Added a 1 at the end of the code section.
 
   3.4 Adaptation data.
 
@@ -159,8 +162,8 @@ Title Page
 
         The distribution file is at the following respositories:
 
-           http://www.softwarediamonds/packages/Proc-Command-0.02
-           http://www.perl.com/CPAN-local/authors/id/S/SO/SOFTDIA/Proc-Command-0.02
+           http://www.softwarediamonds/packages/Proc-Command-0.03
+           http://www.perl.com/CPAN-local/authors/id/S/SO/SOFTDIA/Proc-Command-0.03
 
     Prerequistes.
          'File::TestPath' => '0',

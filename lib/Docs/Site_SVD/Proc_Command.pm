@@ -10,17 +10,17 @@ use warnings;
 use warnings::register;
 
 use vars qw($VERSION $DATE $FILE );
-$VERSION = '0.02';
-$DATE = '2003/07/15';
+$VERSION = '0.03';
+$DATE = '2003/07/16';
 $FILE = __FILE__;
 
 use vars qw(%INVENTORY);
 %INVENTORY = (
-    'lib/Docs/Site_SVD/Proc_Command.pm' => [qw(0.02 2003/07/15), 'revised 0.01'],
-    'MANIFEST' => [qw(0.02 2003/07/15), 'generated, replaces 0.01'],
-    'Makefile.PL' => [qw(0.02 2003/07/15), 'generated, replaces 0.01'],
-    'README' => [qw(0.02 2003/07/15), 'generated, replaces 0.01'],
-    'lib/Proc/Command.pm' => [qw(1.03 2003/07/15), 'revised 1.02'],
+    'lib/Docs/Site_SVD/Proc_Command.pm' => [qw(0.03 2003/07/16), 'revised 0.02'],
+    'MANIFEST' => [qw(0.03 2003/07/16), 'generated, replaces 0.02'],
+    'Makefile.PL' => [qw(0.03 2003/07/16), 'generated, replaces 0.02'],
+    'README' => [qw(0.03 2003/07/16), 'generated, replaces 0.02'],
+    'lib/Proc/Command.pm' => [qw(1.04 2003/07/16), 'revised 1.03'],
     't/Proc/Command.d' => [qw(0.01 2003/07/14), 'unchanged'],
     't/Proc/Command.pm' => [qw(0.01 2003/07/14), 'unchanged'],
     't/Proc/Command.t' => [qw(0.01 2003/07/14), 'unchanged'],
@@ -50,11 +50,11 @@ use vars qw(%INVENTORY);
 
  Proc::Command - backtick that does not use the shell for Perl under Windows
 
- Revision: A
+ Revision: B
 
- Version: 0.02
+ Version: 0.03
 
- Date: 2003/07/15
+ Date: 2003/07/16
 
  Prepared for: General Public 
 
@@ -96,7 +96,7 @@ under Perls on Microsoft Windows.
 
 =head2 1.3 Document overview.
 
-This document releases Proc::Command version 0.02
+This document releases Proc::Command version 0.03
 providing a description of the inventory, installation
 instructions and other information necessary to
 utilize and track this release.
@@ -112,8 +112,8 @@ system file specification.
 This document releases the file found
 at the following repository(s):
 
-   http://www.softwarediamonds/packages/Proc-Command-0.02
-   http://www.perl.com/CPAN-local/authors/id/S/SO/SOFTDIA/Proc-Command-0.02
+   http://www.softwarediamonds/packages/Proc-Command-0.03
+   http://www.perl.com/CPAN-local/authors/id/S/SO/SOFTDIA/Proc-Command-0.03
 
 
 Restrictions regarding duplication and license provisions
@@ -181,11 +181,11 @@ consists of the following files:
 
  file                                                         version date       comment
  ------------------------------------------------------------ ------- ---------- ------------------------
- lib/Docs/Site_SVD/Proc_Command.pm                            0.02    2003/07/15 revised 0.01
- MANIFEST                                                     0.02    2003/07/15 generated, replaces 0.01
- Makefile.PL                                                  0.02    2003/07/15 generated, replaces 0.01
- README                                                       0.02    2003/07/15 generated, replaces 0.01
- lib/Proc/Command.pm                                          1.03    2003/07/15 revised 1.02
+ lib/Docs/Site_SVD/Proc_Command.pm                            0.03    2003/07/16 revised 0.02
+ MANIFEST                                                     0.03    2003/07/16 generated, replaces 0.02
+ Makefile.PL                                                  0.03    2003/07/16 generated, replaces 0.02
+ README                                                       0.03    2003/07/16 generated, replaces 0.02
+ lib/Proc/Command.pm                                          1.04    2003/07/16 revised 1.03
  t/Proc/Command.d                                             0.01    2003/07/14 unchanged
  t/Proc/Command.pm                                            0.01    2003/07/14 unchanged
  t/Proc/Command.t                                             0.01    2003/07/14 unchanged
@@ -202,6 +202,10 @@ Changes are as follows:
 Added a statement to support the VSM platform
 
 $command = "MCR $command" if $^O eq 'VMS';
+
+=item Proc::Command 0.02
+
+Added a 1 at the end of the code section.
 
 =back
 
@@ -245,8 +249,8 @@ Follow the instructions for the the chosen installation software.
 
 The distribution file is at the following respositories:
 
-   http://www.softwarediamonds/packages/Proc-Command-0.02
-   http://www.perl.com/CPAN-local/authors/id/S/SO/SOFTDIA/Proc-Command-0.02
+   http://www.softwarediamonds/packages/Proc-Command-0.03
+   http://www.perl.com/CPAN-local/authors/id/S/SO/SOFTDIA/Proc-Command-0.03
 
 
 =item Prerequistes.
@@ -359,11 +363,11 @@ __DATA__
 DISTNAME: Proc-Command^
 REPOSITORY_DIR: packages^
 
-VERSION : 0.02^
+VERSION : 0.03^
 FREEZE: 1^
 PREVIOUS_DISTNAME:  ^
-PREVIOUS_RELEASE: 0.01^
-REVISION: A^
+PREVIOUS_RELEASE: 0.02^
+REVISION: B^
 
 
 AUTHOR  : SoftwareDiamonds.com E<lt>support@SoftwareDiamonds.comE<gt>^
@@ -414,6 +418,10 @@ Changes are as follows:
 Added a statement to support the VSM platform
 
 $command = "MCR $command" if $^^O eq 'VMS';
+
+\=item Proc::Command 0.02
+
+Added a 1 at the end of the code section.
 
 \=back
 ^

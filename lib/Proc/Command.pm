@@ -15,8 +15,8 @@ use warnings::register;
 # Connect up with the event log.
 #
 use vars qw( $VERSION $DATE $FILE);
-$VERSION = '1.03';
-$DATE = '2003/07/15';
+$VERSION = '1.04';
+$DATE = '2003/07/16';
 $FILE = __FILE__;
 
 use vars qw(@ISA @EXPORT_OK);
@@ -71,6 +71,7 @@ sub command
 
 }
 
+1
 
 __END__
 
